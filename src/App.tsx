@@ -53,31 +53,6 @@ function App() {
                 }
             </div>
         </div>
-        // <div className="main-container">
-        //     <div className="nav-container">
-        //         <ul>
-        //         <li onClick={() => onTabClick("todoApp")}>
-        //             {"Todo App"}
-        //         </li>
-        //         <li onClick={() => onTabClick("currencyConverter")}>
-        //             {"Currency Converter"}
-        //         </li>
-        //         <li onClick={onToggle}>
-        //             {"Toggle"}
-        //         </li>
-        //         </ul>
-        //     </div>
-        //     <div className={activeApp === "todoApp" ? "todo-app-container" : "cc-app-container"}>
-        //         {activeApp === "todoApp" ?
-        //         <TodoApp initialTasksList={initialTasksList} /> :
-        //         (activeApp === "currencyConverter" ?
-        //             <div className="currency-converter-container">
-        //             <CurrencyConverter initialCardsList={initialCardsList} />
-        //             </div> : "")
-        //         }
-        //     </div>
-        //     </div>
-
     );
 }
 
