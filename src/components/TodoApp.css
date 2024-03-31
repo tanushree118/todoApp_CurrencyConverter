@@ -1,0 +1,112 @@
+.todo-tab-container {
+    height: 500px;
+    width: 400px;
+    padding: 10px ;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+    
+}
+
+.heading-box {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.status-box {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.status-btn, .active-status-btn {
+    background-color: white;
+    padding: 13px 20px;
+    margin-right: 5px;
+    border: 1px solid lightgray;
+    border-radius: 22px ;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.active-status-btn {
+    background-color: #334155;
+    color: white;
+}
+
+.task-list-box {
+    padding: 10px;
+    max-height: 40%;
+    min-height: 40%;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.task-box, .colored-task-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+}
+
+.colored-task-box {
+    background-color: #f1f5f9;
+}
+
+.task-input-box {
+    display: flex;
+    overflow-wrap: anywhere;
+    align-items: center;
+    font-weight: 500;
+}
+
+.strike-text {
+    text-decoration: line-through;
+    color: gray;
+}
+
+input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    accent-color: #334155;
+}
+
+.add-task-box {
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.add-task-textbox {
+    width: 100%;
+    box-sizing: border-box;
+    height: 52px;
+    border: none;
+    padding: 15px;
+    font-size: large;
+}
+
+input[type=text]:focus-visible {
+    outline: none;
+}
+
+.err-box {
+    padding: 10px;
+}
+
+.err-text {
+    color: red;
+    font-size: small;
+}
+

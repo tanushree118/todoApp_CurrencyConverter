@@ -1,26 +1,84 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import TodoApp from './components/TodoApp';
+import CurrencyConverter from './components/CurrencyConverter';
 import './App.css';
+import { Task, CardType } from './interfaces';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [activeApp, setActiveApp] = useState("todoApp");
+    const [theme, setTheme] = useState("lightTheme");
+    const [initialTasksList, setInitialTasksList] = useState<Task[]>([]);
+    const [initialCardsList, setInitialCardsList] = useState<CardType[]>([]);
+
+    useEffect(() => {
+        const initialTasksListJSON = localStorage.getItem("tasks");
+        if (initialTasksListJSON) {
+            const parsedInitialTasksList = JSON.parse(initialTasksListJSON);
+            setInitialTasksList(parsedInitialTasksList);
+        }
+        const initialCardsListJSON = localStorage.getItem("cards");
+        if (initialCardsListJSON) {
+            const parsedInitialCardsList = JSON.parse(initialCardsListJSON);
+            setInitialCardsList(parsedInitialCardsList);
+        }
+    }, [activeApp]);
+
+    const onToggle = () => {
+        setTheme("darkTheme");
+    }
+    const onTabClick = (tabName: string) => {
+        setActiveApp(tabName);
+    }
+
+    return (
+        <div className="main-container">
+            <div className="nav-container">
+                <ul>
+                    <li onClick={() => onTabClick("todoApp")}>
+                        {"Todo App"}
+                    </li>
+                    <li onClick={() => onTabClick("currencyConverter")}>
+                        {"Currency Converter"}
+                    </li>
+                    <li onClick={onToggle}>
+                        {"Toggle"}
+                    </li>
+                </ul>
+            </div>
+            <div className={activeApp === "todoApp" ? "todo-app-container" : "cc-app-container"}>
+                {activeApp === "todoApp" ?
+                    <TodoApp initialTasksList={initialTasksList} /> :
+                    (activeApp === "currencyConverter" ?
+                        <CurrencyConverter initialCardsList={initialCardsList} /> : "")
+                }
+            </div>
+        </div>
+        // <div className="main-container">
+        //     <div className="nav-container">
+        //         <ul>
+        //         <li onClick={() => onTabClick("todoApp")}>
+        //             {"Todo App"}
+        //         </li>
+        //         <li onClick={() => onTabClick("currencyConverter")}>
+        //             {"Currency Converter"}
+        //         </li>
+        //         <li onClick={onToggle}>
+        //             {"Toggle"}
+        //         </li>
+        //         </ul>
+        //     </div>
+        //     <div className={activeApp === "todoApp" ? "todo-app-container" : "cc-app-container"}>
+        //         {activeApp === "todoApp" ?
+        //         <TodoApp initialTasksList={initialTasksList} /> :
+        //         (activeApp === "currencyConverter" ?
+        //             <div className="currency-converter-container">
+        //             <CurrencyConverter initialCardsList={initialCardsList} />
+        //             </div> : "")
+        //         }
+        //     </div>
+        //     </div>
+
+    );
 }
 
 export default App;
