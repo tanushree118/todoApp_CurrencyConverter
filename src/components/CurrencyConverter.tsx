@@ -10,7 +10,6 @@ export default function CurrencyConverter({initialCardsList}: CurrencyConverterP
     const [cardsList, setCardsList] = useState<CardType[]>(initialCardsList);
     const [currencyList, setCurrencyList] = useState<string[]>([]);
     const [lastUpdatedTime, setLastUpdatedTime] = useState("");
-    const [baseRate, setBaseRate] = useState(0);
 
     useEffect(() => {
         localStorage.setItem("cards", JSON.stringify(cardsList));
@@ -46,7 +45,6 @@ export default function CurrencyConverter({initialCardsList}: CurrencyConverterP
             let data1 = await response.json();
             let rates1 = data1?.rates;
             currentRate = rates1[targetCurrency];
-            setBaseRate(rates1[targetCurrency]);
         } catch (err) {
             console.log("Error fetching data:", err);
         }

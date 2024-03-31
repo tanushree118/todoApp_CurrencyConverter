@@ -24,7 +24,7 @@ function App() {
     }, [activeApp]);
 
     const onToggle = () => {
-        setTheme("darkTheme");
+        setTheme(theme === "lightTheme" ? "darkTheme" : "lightTheme");
     }
     const onTabClick = (tabName: string) => {
         setActiveApp(tabName);
@@ -45,11 +45,13 @@ function App() {
                     </li>
                 </ul>
             </div>
-            <div className={activeApp === "todoApp" ? "todo-app-container" : "cc-app-container"}>
+            <div className={activeApp === "todoApp" ? "todo-app-container" : `cc-app-container ${theme}-cc`}>
                 {activeApp === "todoApp" ?
-                    <TodoApp initialTasksList={initialTasksList} /> :
-                    (activeApp === "currencyConverter" ?
-                        <CurrencyConverter initialCardsList={initialCardsList} /> : "")
+                <TodoApp initialTasksList={initialTasksList} theme={`${theme}-todo`}/> :
+                (activeApp === "currencyConverter" ?
+                    <div className="currency-converter-container">
+                        <CurrencyConverter initialCardsList={initialCardsList} theme={""}/>
+                    </div> : "")
                 }
             </div>
         </div>
