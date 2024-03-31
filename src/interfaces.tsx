@@ -6,10 +6,12 @@ interface Task {
 
 interface TodoAppProps {
     initialTasksList: Task[];
+    theme: string;
 }
 
 interface CurrencyConverterProps {
     initialCardsList: CardType[];
+    theme: string;
 }
 
 interface ModalDialogProps {

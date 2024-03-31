@@ -15,18 +15,19 @@ describe('CurrencyConverter component', () => {
         }
     ];
 
+
     it('renders without crashing', () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
     });
 
     it('opens modal when add button is clicked', () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
         fireEvent.click(screen.getByAltText('add button'));
         expect(screen.getByText('Add currencies')).toBeInTheDocument();
     });
 
     it('updates source value and recalculates target value', async () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
         fireEvent.change(screen.getByTestId('source-text-box'), { target: { value: '200' } });
         await waitFor(() => {
             const targetTextBox = screen.getByTestId('target-text-box') as HTMLInputElement;
@@ -35,7 +36,7 @@ describe('CurrencyConverter component', () => {
     });
 
     it('updates target value and recalculates source value', async () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
         fireEvent.change(screen.getByTestId('target-text-box'), { target: { value: '200' } });
         await waitFor(() => {
             const sourceTextBox = screen.getByTestId('source-text-box') as HTMLInputElement;
@@ -44,7 +45,7 @@ describe('CurrencyConverter component', () => {
     });
 
     it('reverts currencies on revert click', async () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
         fireEvent.click(screen.getByTestId('revert-button'));
         await waitFor(() => {
         expect(screen.getByTestId('source-currency')).toHaveTextContent('EUR');
@@ -53,7 +54,7 @@ describe('CurrencyConverter component', () => {
     });
 
     it('removes card on remove click', async () => {
-        render(<CurrencyConverter initialCardsList={initialCardsList} />);
+        render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
         fireEvent.click(screen.getByTestId('remove-button'));
         await waitFor(() => {
             expect(screen.queryByText('USD')).not.toBeInTheDocument();

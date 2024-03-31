@@ -1,3 +1,13 @@
+.lightTheme-cc {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.darkTheme-cc {
+  background-color: #334155 !important;
+  color: white;
+}
+
 .main-container {
   min-height: 100vh;
 }

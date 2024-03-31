@@ -5,7 +5,7 @@ import { Task, TodoAppProps } from "../interfaces";
 
 const STATUS_CONSTANTS = ["All", "Pending", "Completed"];
 
-export default function TodoApp({ initialTasksList }: TodoAppProps) {
+export default function TodoApp({ initialTasksList, theme }: TodoAppProps) {
     const [activeStatus, setActiveStatus] = useState(STATUS_CONSTANTS[0]);
     const [tasksList, setTasksList] = useState(initialTasksList);
     const [inputErr, setInputErr] = useState("");
@@ -99,7 +99,7 @@ export default function TodoApp({ initialTasksList }: TodoAppProps) {
     };
 
     return (
-        <div className="todo-tab-container">
+        <div className={`todo-tab-container ${theme}`}>
             <div className="heading-box">
                 <h1>{"Todo App"}</h1>
             </div>
