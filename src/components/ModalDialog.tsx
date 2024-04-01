@@ -106,7 +106,7 @@ export default function ModalDialog({ isOpen, closeModal, currencyList, createNe
                     </FormControl>
                 </Box>
                 <Box sx ={{display: "flex", justifyContent: "end"}}>
-                    <Button onClick={closeModal}>{"Cancel"}</Button>
+                    <Button onClick={handleClose}>{"Cancel"}</Button>
                     <Button onClick={submitData} disabled={isDisabled}>{"Okay"}</Button>
                 </Box>
             </Box>
