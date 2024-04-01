@@ -46,10 +46,10 @@ describe('CurrencyConverter component', () => {
 
     it('reverts currencies on revert click', async () => {
         render(<CurrencyConverter initialCardsList={initialCardsList} theme={"lightTheme"}/>);
-        fireEvent.click(screen.getByTestId('revert-button'));
+        fireEvent.click(screen.getByTestId('revert-button'), 1);
         await waitFor(() => {
-        expect(screen.getByTestId('source-currency')).toHaveTextContent('EUR');
-        expect(screen.getByTestId('target-currency')).toHaveTextContent('USD');
+            expect(screen.getByTestId('source-currency')).toHaveTextContent('EUR');
+            expect(screen.getByTestId('target-currency')).toHaveTextContent('USD');
         });
     });
 
